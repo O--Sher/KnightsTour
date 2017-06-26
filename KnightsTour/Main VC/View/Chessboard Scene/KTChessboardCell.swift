@@ -17,7 +17,7 @@ class KTChessboardCell: SKSpriteNode {
     
     // MARK: - Vars
     
-    private var mark: SKLabelNode?
+    private var marks: [SKLabelNode] = []
     
     private var knight: SKSpriteNode = {
         let knight = SKSpriteNode(imageNamed: "knight")
@@ -42,23 +42,22 @@ class KTChessboardCell: SKSpriteNode {
     
     // MARK: -
     
-    func isMarkDisplayed() -> Bool {
-        guard let mark = mark else { return false }
-        return children.contains(mark)
-    }
-    
     func addMark(text: String) {
         let label = SKLabelNode(text: text)
         label.fontColor = .red
         label.fontName = UIFont.boldSystemFont(ofSize: 17).fontName
         label.position = CGPoint(x: 0, y: 0 - size.height / 3)
-        mark = label
+        marks.append(label)
         addChild(label)
     }
     
-    func removeMark() {
-        guard let mark = mark else { return }
+    func removeLastMark() {
+        guard let mark = marks.last else { return }
         removeChildren(in: [mark])
+    }
+    
+    func removeMarks() {
+        removeChildren(in: marks)
     }
     
 }

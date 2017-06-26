@@ -35,12 +35,9 @@ class KTChessboardScene: SKScene {
                 continue
             }
             if child .contains(touchLocation) {
-                if cell.isKnightDisplayed() {
-                    cell.showKnight(false)
-                } else {
-                    cellWithKnight = cell
-                    cell.showKnight(true)
-                }
+                let isKnightDisplayed = cell.isKnightDisplayed()
+                cellWithKnight = isKnightDisplayed ? nil : cell
+                cell.showKnight(!isKnightDisplayed)
                 continue
             }
             cell.showKnight(false)
@@ -48,6 +45,10 @@ class KTChessboardScene: SKScene {
     }
     
     // MARK: Actions
+    
+    func isKnightDisplayed() -> Bool {
+        return cellWithKnight != nil
+    }
     
     func drawBoard(size: Int) {
         self.removeAllChildren()
@@ -163,7 +164,7 @@ extension KTChessboardScene: KTKnightTourPresenterView {
             fatalError("No cell with knight found")
         }
         lastCell.showKnight(false)
-        previousCell.removeMark()
+        previousCell.removeLastMark()
         cellWithKnight = previousCell
         previousCell.showKnight(true)
     }
@@ -173,7 +174,7 @@ extension KTChessboardScene: KTKnightTourPresenterView {
             guard let cell = child as? KTChessboardCell else {
                 continue
             }
-            cell.removeMark()
+            cell.removeMarks()
         }
     }
 }

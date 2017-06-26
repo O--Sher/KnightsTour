@@ -34,9 +34,13 @@ public enum RunState: Int, Equatable {
 
 public protocol KTMainPresentationView: class {
     var knightTourPresenterView: KTKnightTourPresenterView? { get }
+    
     func setBoardSize(_ size: Int)
     func setRepeatModeEnable(_ param: Bool)
     func setRunState(_ state: RunState)
+    
+    func isReasyToStartSearch() -> Bool
+    func displayAlert(message: String)
 }
 
 public protocol KTMainViewDatasource {
@@ -87,12 +91,18 @@ class KTMainPresenter {
     
     func changeRunState(oldValue: RunState) {
         let newValue = oldValue.switchState()
-        presentationView?.setRunState(newValue)
         if newValue == .running {
-            datasource.searchAlgorithm.runSearch()
+            if let presentationView = presentationView,
+                presentationView.isReasyToStartSearch() {
+                datasource.searchAlgorithm.runSearch()
+            } else {
+                presentationView?.displayAlert(message: "Place knight on board!")
+                return
+            }
         } else {
             datasource.searchAlgorithm.stopSearch()
         }
+        presentationView?.setRunState(newValue)
     }
 }
 

@@ -10,6 +10,7 @@ import UIKit
 
 public protocol KTChessboardView {
     var knightTourPresenterView: KTKnightTourPresenterView? { get }
+    func isReasyToStartSearch() -> Bool
     func drawChessboard(size: Int)
     func clearBoard()
 }
@@ -25,6 +26,7 @@ class KTMainViewController: UIViewController {
     @IBOutlet fileprivate weak var sizeStepper: UIStepper!
     @IBOutlet fileprivate weak var repeatSwitch: UISwitch!
     @IBOutlet fileprivate weak var actionButton: UIButton!
+    @IBOutlet fileprivate weak var clearButton: UIButton!
     
     // MARK: Vars
     
@@ -92,6 +94,19 @@ extension KTMainViewController: KTMainPresentationView {
     func setRunState(_ state: RunState) {
         actionButton.setTitle(state.actionTitle, for: .normal)
         actionButton.tag = state.rawValue
+        clearButton.isEnabled = state == .stopped
+    }
+    
+    func displayAlert(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func isReasyToStartSearch() -> Bool {
+        return chessboardView?.isReasyToStartSearch() ?? false
     }
 }
 

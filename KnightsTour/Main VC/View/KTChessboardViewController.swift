@@ -43,6 +43,10 @@ extension KTChessboardViewController: KTChessboardView {
         return chessboardScene
     }
     
+    func isReasyToStartSearch() -> Bool {
+        return chessboardScene?.isKnightDisplayed() ?? false
+    }
+    
     func drawChessboard(size: Int) {
         chessboardScene?.drawBoard(size: size)
     }

@@ -22,6 +22,7 @@
 		43C95D501F0117C900E9B206 /* KTChessboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D4F1F0117C900E9B206 /* KTChessboardCell.swift */; };
 		43C95D551F01264B00E9B206 /* KTKnightTourAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D541F01264B00E9B206 /* KTKnightTourAlgorithm.swift */; };
 		43C95D571F01277700E9B206 /* KTWarnsdorffsAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D561F01277700E9B206 /* KTWarnsdorffsAlgorithm.swift */; };
+		43C95D591F014AB900E9B206 /* KTSampleAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D581F014AB900E9B206 /* KTSampleAlgorithm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		43C95D4F1F0117C900E9B206 /* KTChessboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTChessboardCell.swift; sourceTree = "<group>"; };
 		43C95D541F01264B00E9B206 /* KTKnightTourAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTKnightTourAlgorithm.swift; sourceTree = "<group>"; };
 		43C95D561F01277700E9B206 /* KTWarnsdorffsAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTWarnsdorffsAlgorithm.swift; sourceTree = "<group>"; };
+		43C95D581F014AB900E9B206 /* KTSampleAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTSampleAlgorithm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			children = (
 				43C95D541F01264B00E9B206 /* KTKnightTourAlgorithm.swift */,
 				43C95D561F01277700E9B206 /* KTWarnsdorffsAlgorithm.swift */,
+				43C95D581F014AB900E9B206 /* KTSampleAlgorithm.swift */,
 			);
 			path = "Search path algorithm";
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			files = (
 				43C95D2E1F00F7B600E9B206 /* KTMainDatasource.swift in Sources */,
 				43C95D2F1F00F7B600E9B206 /* KTMainPresenter.swift in Sources */,
+				43C95D591F014AB900E9B206 /* KTSampleAlgorithm.swift in Sources */,
 				43C95D391F00F96800E9B206 /* KTMainViewController.swift in Sources */,
 				43C95D501F0117C900E9B206 /* KTChessboardCell.swift in Sources */,
 				43C95D431F00FE7400E9B206 /* KTChessboardViewController.swift in Sources */,

@@ -20,7 +20,7 @@ class KTMainDatasource: KTMainViewDatasource {
     
     // MARK: Vars
     
-    var searchAlgorithm: KTKnightTourAlgorithm = KTWarnsdorffsAlgorithm()
+    var searchAlgorithm: KTKnightTourAlgorithm = KTSampleAlgorithm()
     
     var boardSize: Int {
         get {
