@@ -1,0 +1,391 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4343768D1EDC4F8100D4600B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4343768C1EDC4F8100D4600B /* AppDelegate.swift */; };
+		434376981EDC4F8100D4600B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 434376961EDC4F8100D4600B /* Main.storyboard */; };
+		4343769A1EDC4F8100D4600B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 434376991EDC4F8100D4600B /* Assets.xcassets */; };
+		4343769D1EDC4F8100D4600B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4343769B1EDC4F8100D4600B /* LaunchScreen.storyboard */; };
+		43C95D2E1F00F7B600E9B206 /* KTMainDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D2A1F00F7B600E9B206 /* KTMainDatasource.swift */; };
+		43C95D2F1F00F7B600E9B206 /* KTMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D2C1F00F7B600E9B206 /* KTMainPresenter.swift */; };
+		43C95D391F00F96800E9B206 /* KTMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D381F00F96800E9B206 /* KTMainViewController.swift */; };
+		43C95D401F00FE7400E9B206 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 43C95D3C1F00FE7400E9B206 /* Actions.sks */; };
+		43C95D411F00FE7400E9B206 /* KTChessboardScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 43C95D3D1F00FE7400E9B206 /* KTChessboardScene.sks */; };
+		43C95D421F00FE7400E9B206 /* KTChessboardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D3E1F00FE7400E9B206 /* KTChessboardScene.swift */; };
+		43C95D431F00FE7400E9B206 /* KTChessboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D3F1F00FE7400E9B206 /* KTChessboardViewController.swift */; };
+		43C95D481F01012C00E9B206 /* UIView+Embeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D461F01012C00E9B206 /* UIView+Embeding.swift */; };
+		43C95D491F01012C00E9B206 /* UIViewController+Embeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D471F01012C00E9B206 /* UIViewController+Embeding.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		434376891EDC4F8100D4600B /* KnightsTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnightsTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4343768C1EDC4F8100D4600B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		434376971EDC4F8100D4600B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		434376991EDC4F8100D4600B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4343769C1EDC4F8100D4600B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4343769E1EDC4F8100D4600B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43C95D2A1F00F7B600E9B206 /* KTMainDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTMainDatasource.swift; sourceTree = "<group>"; };
+		43C95D2C1F00F7B600E9B206 /* KTMainPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTMainPresenter.swift; sourceTree = "<group>"; };
+		43C95D381F00F96800E9B206 /* KTMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTMainViewController.swift; sourceTree = "<group>"; };
+		43C95D3C1F00FE7400E9B206 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		43C95D3D1F00FE7400E9B206 /* KTChessboardScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = KTChessboardScene.sks; sourceTree = "<group>"; };
+		43C95D3E1F00FE7400E9B206 /* KTChessboardScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTChessboardScene.swift; sourceTree = "<group>"; };
+		43C95D3F1F00FE7400E9B206 /* KTChessboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTChessboardViewController.swift; sourceTree = "<group>"; };
+		43C95D461F01012C00E9B206 /* UIView+Embeding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Embeding.swift"; sourceTree = "<group>"; };
+		43C95D471F01012C00E9B206 /* UIViewController+Embeding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Embeding.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		434376861EDC4F8100D4600B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		434376801EDC4F8100D4600B = {
+			isa = PBXGroup;
+			children = (
+				4343768B1EDC4F8100D4600B /* KnightsTour */,
+				4343768A1EDC4F8100D4600B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4343768A1EDC4F8100D4600B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				434376891EDC4F8100D4600B /* KnightsTour.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4343768B1EDC4F8100D4600B /* KnightsTour */ = {
+			isa = PBXGroup;
+			children = (
+				43C95D281F00F7B600E9B206 /* Main VC */,
+				43C95D441F00FFA200E9B206 /* Shared sources */,
+				4343768C1EDC4F8100D4600B /* AppDelegate.swift */,
+				434376961EDC4F8100D4600B /* Main.storyboard */,
+				434376991EDC4F8100D4600B /* Assets.xcassets */,
+				4343769B1EDC4F8100D4600B /* LaunchScreen.storyboard */,
+				4343769E1EDC4F8100D4600B /* Info.plist */,
+			);
+			path = KnightsTour;
+			sourceTree = "<group>";
+		};
+		43C95D281F00F7B600E9B206 /* Main VC */ = {
+			isa = PBXGroup;
+			children = (
+				43C95D291F00F7B600E9B206 /* Model */,
+				43C95D2B1F00F7B600E9B206 /* Presenter */,
+				43C95D2D1F00F7B600E9B206 /* View */,
+			);
+			path = "Main VC";
+			sourceTree = "<group>";
+		};
+		43C95D291F00F7B600E9B206 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				43C95D2A1F00F7B600E9B206 /* KTMainDatasource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		43C95D2B1F00F7B600E9B206 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				43C95D2C1F00F7B600E9B206 /* KTMainPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		43C95D2D1F00F7B600E9B206 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				43C95D3C1F00FE7400E9B206 /* Actions.sks */,
+				43C95D3D1F00FE7400E9B206 /* KTChessboardScene.sks */,
+				43C95D3E1F00FE7400E9B206 /* KTChessboardScene.swift */,
+				43C95D3F1F00FE7400E9B206 /* KTChessboardViewController.swift */,
+				43C95D381F00F96800E9B206 /* KTMainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		43C95D441F00FFA200E9B206 /* Shared sources */ = {
+			isa = PBXGroup;
+			children = (
+				43C95D451F00FFA200E9B206 /* Extensions */,
+			);
+			path = "Shared sources";
+			sourceTree = "<group>";
+		};
+		43C95D451F00FFA200E9B206 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				43C95D461F01012C00E9B206 /* UIView+Embeding.swift */,
+				43C95D471F01012C00E9B206 /* UIViewController+Embeding.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		434376881EDC4F8100D4600B /* KnightsTour */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 434376A11EDC4F8100D4600B /* Build configuration list for PBXNativeTarget "KnightsTour" */;
+			buildPhases = (
+				434376851EDC4F8100D4600B /* Sources */,
+				434376861EDC4F8100D4600B /* Frameworks */,
+				434376871EDC4F8100D4600B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KnightsTour;
+			productName = KnightsTour;
+			productReference = 434376891EDC4F8100D4600B /* KnightsTour.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		434376811EDC4F8100D4600B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = OSher;
+				TargetAttributes = {
+					434376881EDC4F8100D4600B = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = XKGT3CCHTS;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 434376841EDC4F8100D4600B /* Build configuration list for PBXProject "KnightsTour" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 434376801EDC4F8100D4600B;
+			productRefGroup = 4343768A1EDC4F8100D4600B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				434376881EDC4F8100D4600B /* KnightsTour */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		434376871EDC4F8100D4600B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				434376981EDC4F8100D4600B /* Main.storyboard in Resources */,
+				43C95D411F00FE7400E9B206 /* KTChessboardScene.sks in Resources */,
+				4343769A1EDC4F8100D4600B /* Assets.xcassets in Resources */,
+				4343769D1EDC4F8100D4600B /* LaunchScreen.storyboard in Resources */,
+				43C95D401F00FE7400E9B206 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		434376851EDC4F8100D4600B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43C95D421F00FE7400E9B206 /* KTChessboardScene.swift in Sources */,
+				43C95D2E1F00F7B600E9B206 /* KTMainDatasource.swift in Sources */,
+				43C95D2F1F00F7B600E9B206 /* KTMainPresenter.swift in Sources */,
+				43C95D391F00F96800E9B206 /* KTMainViewController.swift in Sources */,
+				43C95D431F00FE7400E9B206 /* KTChessboardViewController.swift in Sources */,
+				43C95D491F01012C00E9B206 /* UIViewController+Embeding.swift in Sources */,
+				4343768D1EDC4F8100D4600B /* AppDelegate.swift in Sources */,
+				43C95D481F01012C00E9B206 /* UIView+Embeding.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		434376961EDC4F8100D4600B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				434376971EDC4F8100D4600B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4343769B1EDC4F8100D4600B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4343769C1EDC4F8100D4600B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4343769F1EDC4F8100D4600B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		434376A01EDC4F8100D4600B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		434376A21EDC4F8100D4600B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XKGT3CCHTS;
+				INFOPLIST_FILE = KnightsTour/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.OSher.KnightsTour;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		434376A31EDC4F8100D4600B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XKGT3CCHTS;
+				INFOPLIST_FILE = KnightsTour/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.OSher.KnightsTour;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		434376841EDC4F8100D4600B /* Build configuration list for PBXProject "KnightsTour" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4343769F1EDC4F8100D4600B /* Debug */,
+				434376A01EDC4F8100D4600B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		434376A11EDC4F8100D4600B /* Build configuration list for PBXNativeTarget "KnightsTour" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				434376A21EDC4F8100D4600B /* Debug */,
+				434376A31EDC4F8100D4600B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 434376811EDC4F8100D4600B /* Project object */;
+}
