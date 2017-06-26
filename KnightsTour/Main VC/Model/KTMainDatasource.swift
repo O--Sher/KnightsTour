@@ -20,6 +20,8 @@ class KTMainDatasource: KTMainViewDatasource {
     
     // MARK: Vars
     
+    var searchAlgorithm: KTKnightTourAlgorithm = KTWarnsdorffsAlgorithm()
+    
     var boardSize: Int {
         get {
             let size = UserDefaults.standard.integer(forKey: KTMainDatasource.kBoardSizeKey)

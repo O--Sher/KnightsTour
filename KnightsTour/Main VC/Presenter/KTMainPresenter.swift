@@ -33,12 +33,14 @@ public enum RunState: Int, Equatable {
 // MARK: -
 
 public protocol KTMainPresentationView: class {
+    var knightTourPresenterView: KTKnightTourPresenterView? { get }
     func setBoardSize(_ size: Int)
     func setRepeatModeEnable(_ param: Bool)
     func setRunState(_ state: RunState)
 }
 
 public protocol KTMainViewDatasource {
+    var searchAlgorithm: KTKnightTourAlgorithm { get set }
     var boardSize: Int { get set }
     var isRepeatModeEnabled: Bool { get set }
 }
@@ -65,6 +67,9 @@ class KTMainPresenter {
         presentationView.setBoardSize(datasource.boardSize)
         presentationView.setRepeatModeEnable(datasource.isRepeatModeEnabled)
         presentationView.setRunState(.stopped)
+        
+        datasource.searchAlgorithm.delegate = self
+        datasource.searchAlgorithm.presenterView = presentationView.knightTourPresenterView
     }
     
     // MARK: Actions
@@ -75,15 +80,27 @@ class KTMainPresenter {
     }
     
     func repeatModeChanged(enabled: Bool) {
+        datasource.searchAlgorithm.isRepeatCellEnabled = enabled
         datasource.isRepeatModeEnabled = enabled
         presentationView?.setRepeatModeEnable(datasource.isRepeatModeEnabled)
     }
     
     func changeRunState(oldValue: RunState) {
-        // FIXME: RUN ALGORYTHM HERE
         let newValue = oldValue.switchState()
         presentationView?.setRunState(newValue)
+        if newValue == .running {
+            datasource.searchAlgorithm.runSearch()
+        } else {
+            datasource.searchAlgorithm.stopSearch()
+        }
     }
-    
+}
+
+// MARK: -
+
+extension KTMainPresenter: KTKnightTourAlgorithmDelegate {
+    func searchFinished() {
+        presentationView?.setRunState(.stopped)
+    }
 }
 

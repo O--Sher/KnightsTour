@@ -9,6 +9,7 @@
 import UIKit
 
 public protocol KTChessboardView {
+    var knightTourPresenterView: KTKnightTourPresenterView? { get }
     func drawChessboard(size: Int)
     func clearBoard()
 }
@@ -74,6 +75,10 @@ class KTMainViewController: UIViewController {
 
 // MARK: - KTMainPresentationView
 extension KTMainViewController: KTMainPresentationView {
+    var knightTourPresenterView: KTKnightTourPresenterView? {
+        return chessboardView?.knightTourPresenterView
+    }
+
     func setBoardSize(_ size: Int) {
         sizeLabel.text = "\(size)x\(size)"
         sizeStepper.value = Double(size)

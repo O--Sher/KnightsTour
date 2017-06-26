@@ -14,6 +14,10 @@ class KTChessboardScene: SKScene {
     
     private static let kCellSize: CGFloat = 35
     private static let alphas = "abcdefgh"
+
+    // MARK: Vars
+    
+    fileprivate var cellWithKnight: KTChessboardCell?
     
     // MARK: View lifecycle
     
@@ -31,7 +35,12 @@ class KTChessboardScene: SKScene {
                 continue
             }
             if child .contains(touchLocation) {
-                cell.showKnight(!cell.isKnightDisplayed())
+                if cell.isKnightDisplayed() {
+                    cell.showKnight(false)
+                } else {
+                    cellWithKnight = cell
+                    cell.showKnight(true)
+                }
                 continue
             }
             cell.showKnight(false)
@@ -79,14 +88,14 @@ class KTChessboardScene: SKScene {
             guard let cell = child as? KTChessboardCell else {
                 continue
             }
-            cell.showKnight(false)
-            cell.removeMark()
+            cell.removeAllChildren()
         }
+        cellWithKnight = nil
     }
     
     // MARK: Private
     
-    private func _squareWithName(_ name:String) -> KTChessboardCell? {
+    fileprivate func _squareWithName(_ name:String) -> KTChessboardCell? {
         return self.childNode(withName: name) as? KTChessboardCell
     }
     
@@ -124,6 +133,47 @@ class KTChessboardScene: SKScene {
                 self.addChild(identifier)
             }
             
+        }
+    }
+}
+
+extension KTChessboardScene: KTKnightTourPresenterView {
+    func isKnightPresented() -> Bool {
+        return cellWithKnight != nil
+    }
+    
+    func didMoveToCell(_ cellName: String, stepCount: Int) {
+        guard let cell = _squareWithName(cellName) else {
+            fatalError("No cell with name: '\(cellName)' found")
+        }
+        guard let previousCell = cellWithKnight else {
+            fatalError("No previous knight cell found")
+        }
+        previousCell.addMark(text: String(stepCount))
+        previousCell.showKnight(false)
+        cellWithKnight = cell
+        cell.showKnight(true)
+    }
+    
+    func goBackToCell(_ cellName: String) {
+        guard let previousCell = _squareWithName(cellName) else {
+            fatalError("Cannot find a previous cell with name: '\(cellName)'")
+        }
+        guard let lastCell = cellWithKnight else {
+            fatalError("No cell with knight found")
+        }
+        lastCell.showKnight(false)
+        previousCell.removeMark()
+        cellWithKnight = previousCell
+        previousCell.showKnight(true)
+    }
+    
+    func clearProgress() {
+        for child in children {
+            guard let cell = child as? KTChessboardCell else {
+                continue
+            }
+            cell.removeMark()
         }
     }
 }

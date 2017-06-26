@@ -13,7 +13,7 @@ import GameplayKit
 class KTChessboardViewController: UIViewController {
     
     // MARK: Vars
-
+    
     fileprivate var chessboardScene: KTChessboardScene?
 
     // MARK: View lifecycle
@@ -39,6 +39,10 @@ class KTChessboardViewController: UIViewController {
 }
 
 extension KTChessboardViewController: KTChessboardView {
+    var knightTourPresenterView: KTKnightTourPresenterView? {
+        return chessboardScene
+    }
+    
     func drawChessboard(size: Int) {
         chessboardScene?.drawBoard(size: size)
     }

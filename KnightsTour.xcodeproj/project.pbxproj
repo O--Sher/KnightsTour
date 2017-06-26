@@ -20,6 +20,8 @@
 		43C95D4D1F0117A400E9B206 /* KTChessboardScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 43C95D4B1F0117A400E9B206 /* KTChessboardScene.sks */; };
 		43C95D4E1F0117A400E9B206 /* KTChessboardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D4C1F0117A400E9B206 /* KTChessboardScene.swift */; };
 		43C95D501F0117C900E9B206 /* KTChessboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D4F1F0117C900E9B206 /* KTChessboardCell.swift */; };
+		43C95D551F01264B00E9B206 /* KTKnightTourAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D541F01264B00E9B206 /* KTKnightTourAlgorithm.swift */; };
+		43C95D571F01277700E9B206 /* KTWarnsdorffsAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D561F01277700E9B206 /* KTWarnsdorffsAlgorithm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		43C95D4B1F0117A400E9B206 /* KTChessboardScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = KTChessboardScene.sks; sourceTree = "<group>"; };
 		43C95D4C1F0117A400E9B206 /* KTChessboardScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTChessboardScene.swift; sourceTree = "<group>"; };
 		43C95D4F1F0117C900E9B206 /* KTChessboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTChessboardCell.swift; sourceTree = "<group>"; };
+		43C95D541F01264B00E9B206 /* KTKnightTourAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTKnightTourAlgorithm.swift; sourceTree = "<group>"; };
+		43C95D561F01277700E9B206 /* KTWarnsdorffsAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTWarnsdorffsAlgorithm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 		43C95D441F00FFA200E9B206 /* Shared sources */ = {
 			isa = PBXGroup;
 			children = (
+				43C95D531F01264B00E9B206 /* Search path algorithm */,
 				43C95D451F00FFA200E9B206 /* Extensions */,
 			);
 			path = "Shared sources";
@@ -142,6 +147,15 @@
 				43C95D4C1F0117A400E9B206 /* KTChessboardScene.swift */,
 			);
 			path = "Chessboard Scene";
+			sourceTree = "<group>";
+		};
+		43C95D531F01264B00E9B206 /* Search path algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				43C95D541F01264B00E9B206 /* KTKnightTourAlgorithm.swift */,
+				43C95D561F01277700E9B206 /* KTWarnsdorffsAlgorithm.swift */,
+			);
+			path = "Search path algorithm";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,9 +239,11 @@
 				43C95D501F0117C900E9B206 /* KTChessboardCell.swift in Sources */,
 				43C95D431F00FE7400E9B206 /* KTChessboardViewController.swift in Sources */,
 				43C95D491F01012C00E9B206 /* UIViewController+Embeding.swift in Sources */,
+				43C95D571F01277700E9B206 /* KTWarnsdorffsAlgorithm.swift in Sources */,
 				43C95D4E1F0117A400E9B206 /* KTChessboardScene.swift in Sources */,
 				4343768D1EDC4F8100D4600B /* AppDelegate.swift in Sources */,
 				43C95D481F01012C00E9B206 /* UIView+Embeding.swift in Sources */,
+				43C95D551F01264B00E9B206 /* KTKnightTourAlgorithm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
