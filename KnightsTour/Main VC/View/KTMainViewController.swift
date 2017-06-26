@@ -37,8 +37,8 @@ class KTMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = KTMainPresenter(presentationView: self)
         _setupChessboardView()
+        presenter = KTMainPresenter(presentationView: self)
     }
     
     // MARK: IBActions
@@ -62,7 +62,7 @@ class KTMainViewController: UIViewController {
     
     private func _setupChessboardView() {
         let chessboard = KTChessboardViewController()
-        self.chessboardView = chessboard as? KTChessboardView
+        self.chessboardView = chessboard as KTChessboardView
         self.embedViewController(chessboard, inView: chessboardContainerView)
     }
 }

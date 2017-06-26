@@ -60,6 +60,7 @@ class KTChessboardViewController: UIViewController {
 
 extension KTChessboardViewController: KTChessboardView {
     func drawChessboard(size: Int) {
-        // FIXME: Re-draw board here
+        chessboardScene?.removeAllChildren()
+        chessboardScene?.drawBoard(size: size)
     }
 }
