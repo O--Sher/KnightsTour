@@ -35,32 +35,14 @@ class KTChessboardViewController: UIViewController {
             view.showsFPS = true
             view.showsNodeCount = true
         }
-        // FIXME: Remove
-        startTimer()
-    }
-    
-    // MARK: Temporary
-    
-    var timer: Timer?
-    var isDispayed: Bool = false
-    
-    func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameplay), userInfo: nil, repeats: true)
-    }
-    
-    @objc func gameplay() {
-        if self.isDispayed {
-            self.chessboardScene?.clearObjects()
-        } else {
-            self.chessboardScene?.simulateLogic()
-        }
-        self.isDispayed = !self.isDispayed
     }
 }
 
 extension KTChessboardViewController: KTChessboardView {
     func drawChessboard(size: Int) {
-        chessboardScene?.removeAllChildren()
         chessboardScene?.drawBoard(size: size)
+    }
+    func clearBoard() {
+        chessboardScene?.clearBoard()
     }
 }

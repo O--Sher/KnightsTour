@@ -83,13 +83,23 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cem-fS-cem">
-                                        <rect key="frame" x="0.0" y="120" width="335" height="92"/>
+                                        <rect key="frame" x="0.0" y="120" width="335" height="37.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Run">
                                             <color key="titleColor" red="0.2392156869" green="0.67450982329999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="action:" destination="yHE-1W-QaS" eventType="touchUpInside" id="l53-FV-N1r"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCT-XC-tPH">
+                                        <rect key="frame" x="0.0" y="187.5" width="335" height="24.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Clear board">
+                                            <color key="titleColor" red="0.92549020049999997" green="0.23529411850000001" blue="0.1019607857" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clearAction:" destination="yHE-1W-QaS" eventType="touchUpInside" id="nsr-mH-NtT"/>
                                         </connections>
                                     </button>
                                 </subviews>

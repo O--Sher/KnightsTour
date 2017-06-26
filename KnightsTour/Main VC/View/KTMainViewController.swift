@@ -10,6 +10,7 @@ import UIKit
 
 public protocol KTChessboardView {
     func drawChessboard(size: Int)
+    func clearBoard()
 }
 
 // MARK: -
@@ -56,6 +57,10 @@ class KTMainViewController: UIViewController {
             fatalError("Failed to retrieve tag state from button")
         }
         presenter.changeRunState(oldValue: currentState)
+    }
+    
+    @IBAction func clearAction(_ sender: Any) {
+        chessboardView?.clearBoard()
     }
     
     // MARK: Private

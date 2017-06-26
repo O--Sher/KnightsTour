@@ -14,12 +14,12 @@
 		43C95D2E1F00F7B600E9B206 /* KTMainDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D2A1F00F7B600E9B206 /* KTMainDatasource.swift */; };
 		43C95D2F1F00F7B600E9B206 /* KTMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D2C1F00F7B600E9B206 /* KTMainPresenter.swift */; };
 		43C95D391F00F96800E9B206 /* KTMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D381F00F96800E9B206 /* KTMainViewController.swift */; };
-		43C95D401F00FE7400E9B206 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 43C95D3C1F00FE7400E9B206 /* Actions.sks */; };
-		43C95D411F00FE7400E9B206 /* KTChessboardScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 43C95D3D1F00FE7400E9B206 /* KTChessboardScene.sks */; };
-		43C95D421F00FE7400E9B206 /* KTChessboardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D3E1F00FE7400E9B206 /* KTChessboardScene.swift */; };
 		43C95D431F00FE7400E9B206 /* KTChessboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D3F1F00FE7400E9B206 /* KTChessboardViewController.swift */; };
 		43C95D481F01012C00E9B206 /* UIView+Embeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D461F01012C00E9B206 /* UIView+Embeding.swift */; };
 		43C95D491F01012C00E9B206 /* UIViewController+Embeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D471F01012C00E9B206 /* UIViewController+Embeding.swift */; };
+		43C95D4D1F0117A400E9B206 /* KTChessboardScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 43C95D4B1F0117A400E9B206 /* KTChessboardScene.sks */; };
+		43C95D4E1F0117A400E9B206 /* KTChessboardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D4C1F0117A400E9B206 /* KTChessboardScene.swift */; };
+		43C95D501F0117C900E9B206 /* KTChessboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C95D4F1F0117C900E9B206 /* KTChessboardCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,12 +32,12 @@
 		43C95D2A1F00F7B600E9B206 /* KTMainDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTMainDatasource.swift; sourceTree = "<group>"; };
 		43C95D2C1F00F7B600E9B206 /* KTMainPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTMainPresenter.swift; sourceTree = "<group>"; };
 		43C95D381F00F96800E9B206 /* KTMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTMainViewController.swift; sourceTree = "<group>"; };
-		43C95D3C1F00FE7400E9B206 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		43C95D3D1F00FE7400E9B206 /* KTChessboardScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = KTChessboardScene.sks; sourceTree = "<group>"; };
-		43C95D3E1F00FE7400E9B206 /* KTChessboardScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTChessboardScene.swift; sourceTree = "<group>"; };
 		43C95D3F1F00FE7400E9B206 /* KTChessboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTChessboardViewController.swift; sourceTree = "<group>"; };
 		43C95D461F01012C00E9B206 /* UIView+Embeding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Embeding.swift"; sourceTree = "<group>"; };
 		43C95D471F01012C00E9B206 /* UIViewController+Embeding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Embeding.swift"; sourceTree = "<group>"; };
+		43C95D4B1F0117A400E9B206 /* KTChessboardScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = KTChessboardScene.sks; sourceTree = "<group>"; };
+		43C95D4C1F0117A400E9B206 /* KTChessboardScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTChessboardScene.swift; sourceTree = "<group>"; };
+		43C95D4F1F0117C900E9B206 /* KTChessboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTChessboardCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +110,7 @@
 		43C95D2D1F00F7B600E9B206 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				43C95D3C1F00FE7400E9B206 /* Actions.sks */,
-				43C95D3D1F00FE7400E9B206 /* KTChessboardScene.sks */,
-				43C95D3E1F00FE7400E9B206 /* KTChessboardScene.swift */,
+				43C95D4A1F0117A400E9B206 /* Chessboard Scene */,
 				43C95D3F1F00FE7400E9B206 /* KTChessboardViewController.swift */,
 				43C95D381F00F96800E9B206 /* KTMainViewController.swift */,
 			);
@@ -134,6 +132,16 @@
 				43C95D471F01012C00E9B206 /* UIViewController+Embeding.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		43C95D4A1F0117A400E9B206 /* Chessboard Scene */ = {
+			isa = PBXGroup;
+			children = (
+				43C95D4B1F0117A400E9B206 /* KTChessboardScene.sks */,
+				43C95D4F1F0117C900E9B206 /* KTChessboardCell.swift */,
+				43C95D4C1F0117A400E9B206 /* KTChessboardScene.swift */,
+			);
+			path = "Chessboard Scene";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,10 +206,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				434376981EDC4F8100D4600B /* Main.storyboard in Resources */,
-				43C95D411F00FE7400E9B206 /* KTChessboardScene.sks in Resources */,
 				4343769A1EDC4F8100D4600B /* Assets.xcassets in Resources */,
 				4343769D1EDC4F8100D4600B /* LaunchScreen.storyboard in Resources */,
-				43C95D401F00FE7400E9B206 /* Actions.sks in Resources */,
+				43C95D4D1F0117A400E9B206 /* KTChessboardScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,12 +219,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43C95D421F00FE7400E9B206 /* KTChessboardScene.swift in Sources */,
 				43C95D2E1F00F7B600E9B206 /* KTMainDatasource.swift in Sources */,
 				43C95D2F1F00F7B600E9B206 /* KTMainPresenter.swift in Sources */,
 				43C95D391F00F96800E9B206 /* KTMainViewController.swift in Sources */,
+				43C95D501F0117C900E9B206 /* KTChessboardCell.swift in Sources */,
 				43C95D431F00FE7400E9B206 /* KTChessboardViewController.swift in Sources */,
 				43C95D491F01012C00E9B206 /* UIViewController+Embeding.swift in Sources */,
+				43C95D4E1F0117A400E9B206 /* KTChessboardScene.swift in Sources */,
 				4343768D1EDC4F8100D4600B /* AppDelegate.swift in Sources */,
 				43C95D481F01012C00E9B206 /* UIView+Embeding.swift in Sources */,
 			);
