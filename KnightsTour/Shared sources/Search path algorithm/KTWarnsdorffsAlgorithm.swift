@@ -9,6 +9,9 @@
 import Foundation
 
 class KTWarnsdorffsAlgorithm: KTKnightTourAlgorithm {
+    
+    // MARK: Vars
+    
     var isRepeatCellEnabled: Bool = false
     var presenterView: KTKnightTourPresenterView?
     var delegate: KTKnightTourAlgorithmDelegate?
@@ -17,6 +20,8 @@ class KTWarnsdorffsAlgorithm: KTKnightTourAlgorithm {
     
     fileprivate var timer: Timer?
     fileprivate var operations: [()->Void] = []
+    
+    // MARK: Actions
     
     func runSearch() {
         guard let boardSize = presenterView?.boardSize else {
@@ -50,6 +55,8 @@ class KTWarnsdorffsAlgorithm: KTKnightTourAlgorithm {
         operations.removeAll()
     }
     
+    // MARK: Private
+    
     private func sceduleTimer() {
         timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(runOperation), userInfo: nil, repeats: true)
     }
@@ -61,6 +68,7 @@ class KTWarnsdorffsAlgorithm: KTKnightTourAlgorithm {
             }
         }
         if operations.count == 0 {
+            self.stopSearch()
             DispatchQueue.main.async {
                 self.delegate?.searchFinished()
             }
@@ -76,15 +84,19 @@ class KTWarnsdorffsAlgorithm: KTKnightTourAlgorithm {
 
 extension KTWarnsdorffsAlgorithm: TourComputationDelegate {
     func moveTo(cell: String, count: Int) {
-        addOperation { 
+        addOperation {
             self.presenterView?.didMoveToCell(cell, stepCount: count)
         }
     }
     
     func stepBackTo(cell: String) {
-        addOperation {
+        addOperation{
             self.presenterView?.goBackToCell(cell)
         }
+    }
+    
+    func finished() {
+        stopSearch()
     }
 }
 
@@ -160,6 +172,8 @@ fileprivate struct TourComputation {
     // MARK: - Logic
     
     mutating func compute() -> [Position] {
+        var failsCount: Int = 0
+        
         while visited.count != boardSize*boardSize && !path.isEmpty && isRunning {
             let currentMove = path.popLast()!
             let currentPosition = currentMove.position
@@ -172,6 +186,11 @@ fileprivate struct TourComputation {
             
             guard let nextPosition = chooseNextStep(outof: nextSteps) else {
                 // no available next steps
+                
+                failsCount += 1
+                if failsCount >= 100 {
+                    return path.map { $0.position }
+                }
                 
                 if isRepeatCellEnabled {
                     guard let visitedPosition = path.last else {
@@ -266,4 +285,5 @@ fileprivate struct TourComputation {
 protocol TourComputationDelegate {
     func moveTo(cell: String, count: Int)
     func stepBackTo(cell: String)
+    func finished()
 }

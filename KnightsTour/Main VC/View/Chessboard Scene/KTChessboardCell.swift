@@ -43,8 +43,10 @@ class KTChessboardCell: SKSpriteNode {
         let label = SKLabelNode(text: text)
         label.fontColor = .red
         label.fontName = UIFont.boldSystemFont(ofSize: 15).fontName
-        label.fontSize = 15
-        label.position = CGPoint(x: 0, y: 0 - size.height / 3)
+        label.fontSize = 25
+        label.horizontalAlignmentMode = .center
+        label.verticalAlignmentMode = .center
+        label.position = CGPoint(x: 0, y: 0)
         marks.append(label)
         addChild(label)
     }
