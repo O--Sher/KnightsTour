@@ -9,6 +9,9 @@
 import Foundation
 
 public protocol KTKnightTourPresenterView {
+    var boardSize: Int { get }
+    var startCell: String? { get }
+    
     func isKnightPresented() -> Bool
     func didMoveToCell(_ cellName: String, stepCount: Int)
     func goBackToCell(_ cellName: String)
@@ -27,5 +30,3 @@ public protocol KTKnightTourAlgorithm {
     func runSearch()
     func stopSearch()
 }
-
-

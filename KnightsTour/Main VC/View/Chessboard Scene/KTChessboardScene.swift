@@ -18,6 +18,7 @@ class KTChessboardScene: SKScene {
     // MARK: Vars
     
     fileprivate var cellWithKnight: KTChessboardCell?
+    fileprivate var chessboardSize: Int = 0
     
     // MARK: View lifecycle
     
@@ -51,6 +52,7 @@ class KTChessboardScene: SKScene {
     }
     
     func drawBoard(size: Int) {
+        chessboardSize = size
         self.removeAllChildren()
         
         // Board parameters
@@ -139,6 +141,14 @@ class KTChessboardScene: SKScene {
 }
 
 extension KTChessboardScene: KTKnightTourPresenterView {
+    var boardSize: Int {
+        return chessboardSize
+    }
+    
+    var startCell: String? {
+        return cellWithKnight?.name
+    }
+    
     func isKnightPresented() -> Bool {
         return cellWithKnight != nil
     }
