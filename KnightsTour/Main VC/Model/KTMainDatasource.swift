@@ -13,7 +13,7 @@ class KTMainDatasource: KTMainViewDatasource {
     // MARK: Definitions
     
     private static let kDefaultBoardSize = 5
-    private static let kDefaultBoardSizeRange = 5...8
+    private static let kDefaultBoardSizeRange = 5...15
     
     private static let kBoardSizeKey = "KTBoardSize"
     private static let kRepeatModeKey = "KTRepeatMode"

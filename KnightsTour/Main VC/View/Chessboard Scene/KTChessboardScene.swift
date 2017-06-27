@@ -12,13 +12,13 @@ class KTChessboardScene: SKScene {
     
     // MARK: Definitions
     
-    private static let kCellSize: CGFloat = 35
-    private static let alphas = "abcdefgh"
+    private static let alphas = "abcdefghijklmnop"
 
     // MARK: Vars
     
     fileprivate var cellWithKnight: KTChessboardCell?
     fileprivate var chessboardSize: Int = 0
+    fileprivate var cellSize: CGFloat = 0
     
     // MARK: View lifecycle
     
@@ -52,11 +52,12 @@ class KTChessboardScene: SKScene {
     }
     
     func drawBoard(size: Int) {
-        chessboardSize = size
         self.removeAllChildren()
+        chessboardSize = size
+        cellSize = self.size.width / CGFloat(size)
         
         // Board parameters
-        let squareSize = KTChessboardScene.kCellSize
+        let squareSize = cellSize
         let viewWidth = frame.width
         var toggle:Bool = false // Used to alternate between white and black squares
         
@@ -83,7 +84,7 @@ class KTChessboardScene: SKScene {
             if size % 2 == 0 { toggle = !toggle } // Check on odd size
         }
         
-        _drawIdentifiers(size: size)
+//        _drawIdentifiers(size: size)
     }
     
     func clearBoard() {
@@ -103,7 +104,7 @@ class KTChessboardScene: SKScene {
     }
     
     private func _drawIdentifiers(size: Int) {
-        let squareSize = KTChessboardScene.kCellSize
+        let squareSize = cellSize
         
         func labelNode(text: String, position: CGPoint) -> SKLabelNode {
             let label = SKLabelNode(text: text)

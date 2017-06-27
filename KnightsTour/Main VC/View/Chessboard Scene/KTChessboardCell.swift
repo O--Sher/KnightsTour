@@ -9,33 +9,30 @@
 import SpriteKit
 
 class KTChessboardCell: SKSpriteNode {
-    
-    // MARK: - Definitions
-    
-    private static let kKnightSize: CGFloat = 50
-    private static let kMarkSize: CGFloat = 35
-    
+        
     // MARK: - Vars
     
     private var marks: [SKLabelNode] = []
-    
-    private var knight: SKSpriteNode = {
-        let knight = SKSpriteNode(imageNamed: "knight")
-        let size = KTChessboardCell.kKnightSize
-        knight.size = CGSize(width: size, height: size)
-        return knight
-    }()
+    private var knight: SKSpriteNode?
     
     // MARK: - Actions
     
     func isKnightDisplayed() -> Bool {
+        guard let knight = knight else { return false }
         return children.contains(knight)
     }
     
     func showKnight(_ param: Bool) {
         if param {
-            addChild(knight)
+            if knight == nil {
+                let newKnight = SKSpriteNode(imageNamed: "knight")
+                let size = self.size.width
+                newKnight.size = CGSize(width: size, height: size)
+                knight = newKnight
+            }
+            addChild(knight!)
         } else {
+            guard let knight = knight else { return }
             removeChildren(in: [knight])
         }
     }
@@ -45,7 +42,8 @@ class KTChessboardCell: SKSpriteNode {
     func addMark(text: String) {
         let label = SKLabelNode(text: text)
         label.fontColor = .red
-        label.fontName = UIFont.boldSystemFont(ofSize: 17).fontName
+        label.fontName = UIFont.boldSystemFont(ofSize: 15).fontName
+        label.fontSize = 15
         label.position = CGPoint(x: 0, y: 0 - size.height / 3)
         marks.append(label)
         addChild(label)

@@ -49,12 +49,8 @@ class KTWarnsdorffsAlgorithm: KTKnightTourAlgorithm {
         timer = nil
         operations.removeAll()
     }
-}
-
-// MARK: - TourComputationDelegate
-
-extension KTWarnsdorffsAlgorithm: TourComputationDelegate {
-    fileprivate func sceduleTimer() {
+    
+    private func sceduleTimer() {
         timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(runOperation), userInfo: nil, repeats: true)
     }
     
@@ -64,12 +60,21 @@ extension KTWarnsdorffsAlgorithm: TourComputationDelegate {
                 operation()
             }
         }
+        if operations.count == 0 {
+            DispatchQueue.main.async {
+                self.delegate?.searchFinished()
+            }
+        }
     }
     
-    private func addOperation(_ operation: @escaping ()->Void) {
+    fileprivate func addOperation(_ operation: @escaping ()->Void) {
         operations.insert(operation, at: 0)
     }
-    
+}
+
+// MARK: - TourComputationDelegate
+
+extension KTWarnsdorffsAlgorithm: TourComputationDelegate {
     func moveTo(cell: String, count: Int) {
         addOperation { 
             self.presenterView?.didMoveToCell(cell, stepCount: count)
@@ -79,12 +84,6 @@ extension KTWarnsdorffsAlgorithm: TourComputationDelegate {
     func stepBackTo(cell: String) {
         addOperation {
             self.presenterView?.goBackToCell(cell)
-        }
-    }
-    
-    func finished() {
-        DispatchQueue.main.async {
-            self.delegate?.searchFinished()
         }
     }
 }
@@ -112,20 +111,16 @@ public struct Position: Hashable, Equatable, CustomStringConvertible {
 
 extension Position {
     static var alphas: String {
-        return "abcdefgh"
+        return "abcdefghijklmnop"
     }
     
     init?(cellName: String) {
-        guard cellName.characters.count == 2 else {
-            fatalError("Wrong cell name format! ex. a1")
-        }
         guard let letter = cellName.characters.first,
            let letterIndex = Position.alphas.characters.index(of: letter)
             else { fatalError("Failed to retrieve letter") }
 
-        guard let number = cellName.characters.last,
-            let y = Int(String(number))
-            else { fatalError("Failed to retrieve number") }
+        let number = cellName.substring(from: cellName.index(cellName.startIndex, offsetBy: 1))
+        guard let y = Int(number) else { fatalError("Failed to retrieve number") }
         
         let x: Int = Position.alphas.distance(from: Position.alphas.startIndex, to: letterIndex)
         self.init(x: x, y: y - 1)
@@ -180,7 +175,6 @@ fileprivate struct TourComputation {
                 
                 if isRepeatCellEnabled {
                     guard let visitedPosition = path.last else {
-                        delegate?.finished()
                         return path.map { $0.position }
                     }
                     moveTo(position: visitedPosition.position)
@@ -199,7 +193,6 @@ fileprivate struct TourComputation {
             moveTo(position: nextPosition)
         }
         
-        delegate?.finished()
         return path.map { $0.position }
     }
     
@@ -273,5 +266,4 @@ fileprivate struct TourComputation {
 protocol TourComputationDelegate {
     func moveTo(cell: String, count: Int)
     func stepBackTo(cell: String)
-    func finished()
 }
