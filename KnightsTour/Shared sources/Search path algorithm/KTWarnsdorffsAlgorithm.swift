@@ -15,6 +15,9 @@ class KTWarnsdorffsAlgorithm: KTKnightTourAlgorithm {
     
     private var tour: TourComputation?
     
+    fileprivate var timer: Timer?
+    fileprivate var operations: [()->Void] = []
+    
     func runSearch() {
         guard let boardSize = presenterView?.boardSize else {
             fatalError("Failed to retrieve board size")
@@ -26,31 +29,55 @@ class KTWarnsdorffsAlgorithm: KTKnightTourAlgorithm {
         }
         
         presenterView?.clearProgress()
+        sceduleTimer()
+        
         tour = TourComputation(boardSize: boardSize, start: startPosition)
         tour?.delegate = self
         tour?.isRunning = true
         tour?.isRepeatCellEnabled = isRepeatCellEnabled
+        
         DispatchQueue.global().async {
-            _ = self.tour?.compute()
+            if let path = self.tour?.compute() {
+                print("\(path)")
+            }
         }
     }
     
     func stopSearch() {
         tour?.isRunning = false
+        timer?.invalidate()
+        timer = nil
+        operations.removeAll()
     }
 }
 
 // MARK: - TourComputationDelegate
 
 extension KTWarnsdorffsAlgorithm: TourComputationDelegate {
+    fileprivate func sceduleTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(runOperation), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func runOperation() {
+        if let operation = operations.popLast() {
+            DispatchQueue.main.async {
+                operation()
+            }
+        }
+    }
+    
+    private func addOperation(_ operation: @escaping ()->Void) {
+        operations.insert(operation, at: 0)
+    }
+    
     func moveTo(cell: String, count: Int) {
-        DispatchQueue.main.async {
+        addOperation { 
             self.presenterView?.didMoveToCell(cell, stepCount: count)
         }
     }
     
     func stepBackTo(cell: String) {
-        DispatchQueue.main.async {
+        addOperation {
             self.presenterView?.goBackToCell(cell)
         }
     }
@@ -162,7 +189,6 @@ fileprivate struct TourComputation {
                     
                     // Displaying step back
                     if let previousStep = path.last?.position {
-                        sleep(1)
                         delegate?.stepBackTo(cell: previousStep.stringFormat)
                     }
                 }
@@ -186,7 +212,6 @@ fileprivate struct TourComputation {
         path.append(modifiedLastMove)
         
         // Displaying move
-        sleep(1)
         delegate?.moveTo(cell: nextPosition.stringFormat, count: path.count)
     }
     

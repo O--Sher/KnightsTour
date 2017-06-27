@@ -140,6 +140,8 @@ class KTChessboardScene: SKScene {
     }
 }
 
+// MARK: - KTKnightTourPresenterView
+
 extension KTChessboardScene: KTKnightTourPresenterView {
     var boardSize: Int {
         return chessboardSize
