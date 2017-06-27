@@ -74,6 +74,7 @@ class KTMainPresenter {
         
         datasource.searchAlgorithm.delegate = self
         datasource.searchAlgorithm.presenterView = presentationView.knightTourPresenterView
+        datasource.searchAlgorithm.isRepeatCellEnabled = datasource.isRepeatModeEnabled
     }
     
     // MARK: Actions
@@ -84,8 +85,8 @@ class KTMainPresenter {
     }
     
     func repeatModeChanged(enabled: Bool) {
-        datasource.searchAlgorithm.isRepeatCellEnabled = enabled
         datasource.isRepeatModeEnabled = enabled
+        datasource.searchAlgorithm.isRepeatCellEnabled = enabled
         presentationView?.setRepeatModeEnable(datasource.isRepeatModeEnabled)
     }
     

@@ -29,6 +29,7 @@ class KTWarnsdorffsAlgorithm: KTKnightTourAlgorithm {
         tour = TourComputation(boardSize: boardSize, start: startPosition)
         tour?.delegate = self
         tour?.isRunning = true
+        tour?.isRepeatCellEnabled = isRepeatCellEnabled
         DispatchQueue.global().async {
             _ = self.tour?.compute()
         }
@@ -38,6 +39,8 @@ class KTWarnsdorffsAlgorithm: KTKnightTourAlgorithm {
         tour?.isRunning = false
     }
 }
+
+// MARK: - TourComputationDelegate
 
 extension KTWarnsdorffsAlgorithm: TourComputationDelegate {
     func moveTo(cell: String, count: Int) {
@@ -59,7 +62,7 @@ extension KTWarnsdorffsAlgorithm: TourComputationDelegate {
     }
 }
 
-// MARK: -
+// MARK: - Position -
 
 public struct Position: Hashable, Equatable, CustomStringConvertible {
     var x: Int
@@ -108,7 +111,7 @@ extension Position {
     }
 }
 
-// MARK: -
+// MARK: - TourComputation -
 
 fileprivate struct TourComputation {
     private struct Move {
@@ -116,11 +119,14 @@ fileprivate struct TourComputation {
         var availableNextSteps: [Position]
     }
     
-    var boardSize: Int
-    var isRunning: Bool = false
     var delegate: TourComputationDelegate?
     
-    var visited: Set<Position> = []
+    var isRunning: Bool = false
+    var isRepeatCellEnabled: Bool = false
+    
+    private var boardSize: Int
+    
+    private var visited: Set<Position> = []
     private var path: [Move] = []
     
     init(boardSize: Int, start position: Position) {
@@ -129,50 +135,46 @@ fileprivate struct TourComputation {
         path.append(Move(position: position, availableNextSteps: nextStepsWithinTheBoard(from: position)))
     }
     
-    // MARK: -
+    // MARK: - Logic
     
     mutating func compute() -> [Position] {
-        while path.count != boardSize*boardSize && !path.isEmpty && isRunning {
+        while visited.count != boardSize*boardSize && !path.isEmpty && isRunning {
             let currentMove = path.popLast()!
             let currentPosition = currentMove.position
             let nextSteps = currentMove.availableNextSteps
             
+            func moveTo(position: Position) {
+                remove(nextPosition: position, from: currentMove)
+                makeNextMove(to: position)
+            }
+            
             guard let nextPosition = chooseNextStep(outof: nextSteps) else {
                 // no available next steps
-                visited.remove(currentPosition)
-                //                print("backtracking")
                 
-                // Displaying step back
-                if let previousStep = path.last?.position {
-                    sleep(1)
-                    delegate?.stepBackTo(cell: previousStep.stringFormat)
+                if isRepeatCellEnabled {
+                    guard let visitedPosition = path.last else {
+                        delegate?.finished()
+                        return path.map { $0.position }
+                    }
+                    moveTo(position: visitedPosition.position)
+                } else {
+                    visited.remove(currentPosition)
+                    
+                    // Displaying step back
+                    if let previousStep = path.last?.position {
+                        sleep(1)
+                        delegate?.stepBackTo(cell: previousStep.stringFormat)
+                    }
                 }
                 
                 continue
             }
             
-            remove(nextPosition: nextPosition, from: currentMove)
-            makeNextMove(to: nextPosition)
+            moveTo(position: nextPosition)
         }
         
         delegate?.finished()
         return path.map { $0.position }
-    }
-    
-    // Warnsdorfss rule - choosing step with less possible next steps
-    private func chooseNextStep(outof nextSteps: [Position]) -> Position? {
-        if nextSteps.isEmpty { return nil }
-        
-        var minCount = 8
-        var result = nextSteps.first!
-        for position in nextSteps {
-            let count = nextStepsWithinTheBoard(from: position).filter { !visited.contains($0) }.count
-            if count < minCount {
-                minCount = count
-                result = position
-            }
-        }
-        return result
     }
     
     // remove chosen from nextSteps
@@ -196,7 +198,30 @@ fileprivate struct TourComputation {
         path.append(nextMove)
     }
     
-    // MARK: -
+    // MARK: - Search possible steps
+    
+    // Warnsdorfss rule - choosing step with less possible next steps
+    private func chooseNextStep(outof nextSteps: [Position], filter: Bool = true) -> Position? {
+        if nextSteps.isEmpty { return nil }
+        
+        if filter == false {
+            let rand = Int(arc4random_uniform(UInt32(nextSteps.count)))
+            let result = nextSteps[rand]
+            return result
+        }
+            
+        var minCount = 8
+        var result = nextSteps.first!
+        for position in nextSteps {
+            let count = nextStepsWithinTheBoard(from: position).filter {
+                !visited.contains($0) }.count
+            if count < minCount {
+                minCount = count
+                result = position
+            }
+        }
+        return result
+    }
     
     private func nextStepsWithinTheBoard(from currentPosition: Position) -> [Position] {
         let moves = nextSteps(from: currentPosition).filter { (position) -> Bool in
@@ -217,6 +242,8 @@ fileprivate struct TourComputation {
         return moves
     }
 }
+
+// MARK: -
 
 protocol TourComputationDelegate {
     func moveTo(cell: String, count: Int)
