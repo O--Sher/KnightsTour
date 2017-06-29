@@ -94,7 +94,10 @@ extension KTMainViewController: KTMainPresentationView {
     func setRunState(_ state: RunState) {
         actionButton.setTitle(state.actionTitle, for: .normal)
         actionButton.tag = state.rawValue
+        
         clearButton.isEnabled = state == .stopped
+        sizeStepper.isEnabled = state == .stopped
+        repeatSwitch.isEnabled = state == .stopped
     }
     
     func displayAlert(message: String) {
